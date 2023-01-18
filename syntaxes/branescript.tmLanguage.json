@@ -1,0 +1,41 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "BraneScript",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.branescript",
+				"match": "\\b(if|while|return)\\b"
+			},{
+				"name": "keyword.typedef.branescript",
+				"match": "\\bconst\\b"
+			},{
+				"name": "keyword.linking.branescript",
+				"match": "\\b(public|link|as|ext)\\b"
+			},{
+				"name": "keyword.types.branescript",
+				"match": "\\b(char|bool|uint|uint64|int|int64|float|double)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.branescript",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.branescript",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.bs"
+}

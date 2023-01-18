@@ -1,0 +1,25 @@
+{
+  "name": "branescript-intelligence",
+  "displayName": "BraneScript Intelligence",
+  "description": "Adds code completion and highlighting for BraneScript",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "branescript",
+      "aliases": ["BraneScript", "branescript"],
+      "extensions": [".bs"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "branescript",
+      "scopeName": "source.bs",
+      "path": "./syntaxes/branescript.tmLanguage.json"
+    }]
+  }
+}
