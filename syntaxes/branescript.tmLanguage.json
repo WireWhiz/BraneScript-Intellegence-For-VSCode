@@ -22,7 +22,7 @@
 				"match": "\\b(public|link|as|ext)\\b"
 			},{
 				"name": "keyword.types.branescript",
-				"match": "\\b(char|bool|uint|uint64|int|int64|float|double)\\b"
+				"match": "\\b(char|bool|uint|uint64|int|int64|float|double|struct)\\b"
 			}]
 		},
 		"strings": {
