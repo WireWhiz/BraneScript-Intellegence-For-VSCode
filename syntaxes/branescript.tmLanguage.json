@@ -16,10 +16,10 @@
 				"match": "\\b(if|while|return)\\b"
 			},{
 				"name": "keyword.typedef.branescript",
-				"match": "\\bconst\\b"
+				"match": "\\b(const|ref)\\b"
 			},{
 				"name": "keyword.linking.branescript",
-				"match": "\\b(public|link|as|ext)\\b"
+				"match": "\\b(public|link|export|as|ext)\\b"
 			},{
 				"name": "keyword.types.branescript",
 				"match": "\\b(char|bool|uint|uint64|int|int64|float|double|struct)\\b"

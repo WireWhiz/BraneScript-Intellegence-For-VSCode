@@ -1,0 +1,29 @@
+link "BraneScript" as "std";
+
+int globalInt;
+
+export as "globals" {
+    struct GlobalStruct 
+    {
+        int memberVar;
+        int memberFunction(ref GlobalStruct o)
+        {
+            return o.memberVar;
+        }
+    }
+}
+
+int testFunction()
+{
+    NotAType a;
+    a = 3;
+}
+
+ 
+int testFunction()
+{
+    GlobalStruct s;
+    s.memberVar = 2;
+    s.memberFunction();
+    return s.memberVar;
+}

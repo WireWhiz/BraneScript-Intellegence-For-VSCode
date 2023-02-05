@@ -22,28 +22,42 @@ let client: LanguageClient;
 let server : Socket
 
 export function activate(context: ExtensionContext) {
-
 	const serverOptions : ServerOptions = async ()  =>  {
-		server = new Socket({
-			readable: true,
-			writable: true
-		});
+		
 
 		let resolve, reject;
 		let streamInfo = new Promise<StreamInfo>(function(res, rej){
 			resolve = res;
 			reject = rej;
 		});
-		server.connect({
-			port: 2001,
-			host: 'localhost'
-		}, ()=>{
-			console.log("Connected to BS Intellegence server")
-			resolve({
-				writer: server,
-				reader: server
+
+		var attemptConnection = ()=>{
+			server = new Socket({
+				readable: true,
+				writable: true
 			});
-		});
+	
+			server.addListener('error', (err: Error)=>{
+				vscode.window.showErrorMessage("Could not connect to lsp server!", {title: "Try again"}, {title: "Cancel"}).then((item)=>{
+					if(item.title == "Try again") {
+						attemptConnection();
+					} else 
+						reject(err);
+				});
+			});
+	
+			server.connect({
+				port: 2001,
+				host: 'localhost'
+			}, ()=>{
+				console.log("Connected to BS Intellegence server")
+				resolve({
+					writer: server,
+					reader: server
+				});
+			});
+		}
+		attemptConnection();
 		return streamInfo;
 	};
 
@@ -74,7 +88,7 @@ export function activate(context: ExtensionContext) {
 		serverOptions,
 		clientOptions
 	);
-
+	
 	client.start();
 	console.log("BS Intelegence started");
 }
