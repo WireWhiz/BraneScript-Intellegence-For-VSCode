@@ -38,10 +38,10 @@ export function activate(context: ExtensionContext) {
 			});
 	
 			server.addListener('error', (err: Error)=>{
-				vscode.window.showErrorMessage("Could not connect to lsp server!", {title: "Try again"}, {title: "Cancel"}).then((item)=>{
-					if(item.title == "Try again") {
+				vscode.window.showErrorMessage("Could not connect to lsp server!", {title: "Reatempt"}, {title: "Cancel"}).then((item)=>{
+					if(item.title == "Reatempt")
 						attemptConnection();
-					} else 
+					else 
 						reject(err);
 				});
 			});
@@ -74,7 +74,7 @@ export function activate(context: ExtensionContext) {
 				return CloseAction.Restart;
 			}
 		},
-		progressOnInitialization: true
+		//progressOnInitialization: true
 		// synchronize: {
 		// 	// Notify the server about file changes to '.clientrc files contained in the workspace
 		// 	fileEvents: workspace.createFileSystemWatcher('**/.clientrc')

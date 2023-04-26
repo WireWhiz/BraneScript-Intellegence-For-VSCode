@@ -1,29 +1,15 @@
-link "BraneScript" as "std";
+link "BraneScript";
 
-int globalInt;
-
-export as "globals" {
-    struct GlobalStruct 
+export as "Pair"
+{
+    template<typedef Arg1, typedef Arg2>
+    struct Pair
     {
-        int memberVar;
-        int memberFunction(ref GlobalStruct o)
+        Arg1 first;
+        Arg2 second;
+        Arg1 getFirst()
         {
-            return o.memberVar;
+            return first;
         }
     }
-}
-
-int testFunction()
-{
-    NotAType a;
-    a = 3;
-}
-
- 
-int testFunction()
-{
-    GlobalStruct s;
-    s.memberVar = 2;
-    s.memberFunction();
-    return s.memberVar;
 }

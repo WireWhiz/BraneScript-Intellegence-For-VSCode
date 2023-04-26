@@ -16,7 +16,7 @@
 				"match": "\\b(if|while|return)\\b"
 			},{
 				"name": "keyword.typedef.branescript",
-				"match": "\\b(const|ref)\\b"
+				"match": "\\b(const|ref|template|typedef)\\b"
 			},{
 				"name": "keyword.linking.branescript",
 				"match": "\\b(public|link|export|as|ext)\\b"
